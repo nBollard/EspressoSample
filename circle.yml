@@ -13,8 +13,10 @@ dependencies:
 
 test:
   override:
+    # Create AVD with Google Apis
+    - android create avd -t android-23 -b google_apis/armeabi-v7a -d "Nexus 5" -n circleci-android23-GoogleApis
     # start the emulator
-    - emulator -avd circleci-android22 -no-audio -no-window:
+    - emulator -avd circleci-android23-GoogleApis -no-audio -no-window:
         background: true
         parallel: true
     # wait for it to have booted
